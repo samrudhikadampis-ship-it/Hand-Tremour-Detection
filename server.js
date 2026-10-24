@@ -140,11 +140,16 @@ function makeMockFrame(index) {
     : roundedFrequency > 45 || mildBurst
       ? 2
       : 1;
-  return {
+  const tremor = {
     frequency_hz: roundedFrequency,
     amplitude_mv: amplitude,
     severity,
+  };
+  return {
+    ...tremor,
     sample_id: sample.sample_id,
+    movement: sample.movement,
+    tremor,
   };
 }
 
